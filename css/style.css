@@ -1036,10 +1036,11 @@ animation-delay: 3.5s;
   box-sizing: border-box;
 }
 
-/* 左：立ち絵2枚 */
+/* 左：立ち絵 */
 .character-modal-images {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   gap: 24px;
   width: 48%;
   height: 100%;
