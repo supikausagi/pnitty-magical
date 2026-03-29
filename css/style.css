@@ -468,6 +468,26 @@ PCナビゲーション
   z-index: 2;
 }
 
+/*========= ページの推移 ===============*/
+.page-transition {
+  position: fixed;
+  inset: 0;
+  background: #ff69b4; /* ピンク */
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+/* フェードアウト（推移時） */
+.page-transition.start,
+.page-transition.active {
+  opacity: 1;
+}
+
+.page-transition.active {
+  pointer-events: auto;
+}
 /*==================================================
 ■index.html
 ===================================*/
