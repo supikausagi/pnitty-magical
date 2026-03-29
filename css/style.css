@@ -1077,10 +1077,13 @@ animation-delay: 3.5s;
   }
 
   .character-modal-inner {
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 20px;
-    padding: 30px 20px;
+    gap: 16px;
+    padding: 24px 16px 20px;
+    box-sizing: border-box;
+    height: calc(100% - 56px);
     overflow-y: auto;
   }
 
@@ -1090,14 +1093,23 @@ animation-delay: 3.5s;
   }
 
   .character-modal-images {
-    height: auto;
+    display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
+    height: auto;
+    flex-shrink: 0;
   }
 
   .character-full {
-    width: 45%;
-    max-height: 40vh;
+    width: 100%;
+    max-width: 320px;
+    max-height: 48vh;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  .character-modal-text {
+    flex-shrink: 0;
   }
 
   .modal-close {
@@ -1105,11 +1117,10 @@ animation-delay: 3.5s;
     right: 12px;
     width: 48px;
     height: 48px;
-    font-size: 32px;
   }
 
-   .modal-prev,
-   .modal-next {
+  .modal-prev,
+  .modal-next {
     display: none;
   }
 }
