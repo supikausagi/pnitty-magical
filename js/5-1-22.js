@@ -146,3 +146,56 @@ if (icons.length > 0 && modal && modalContent) {
     }
   });
 }
+
+// ========================
+// ページの推移
+// ========================
+document.addEventListener("DOMContentLoaded", () => {
+  const transition = document.querySelector(".page-transition");
+
+  // ページ読み込み時：ピンクからフェードイン
+  if (transition) {
+    transition.classList.add("start");
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        transition.classList.remove("start");
+      });
+    });
+  }
+
+  // ページ遷移時：ピンクへフェードアウト
+  document.querySelectorAll("a[href]").forEach(link => {
+    link.addEventListener("click", (e) => {
+      const href = link.getAttribute("href");
+
+      // 無視するリンク
+      if (
+        !href ||
+        href.startsWith("#") ||                  // 同ページ内アンカー
+        href.startsWith("javascript:") ||
+        link.target === "_blank" ||             // 新規タブ
+        link.hasAttribute("download")
+      ) {
+        return;
+      }
+
+      // 外部リンクはそのまま開く
+      const url = new URL(link.href, window.location.href);
+      if (url.origin !== window.location.origin) {
+        return;
+      }
+
+      e.preventDefault();
+
+      if (transition) {
+        transition.classList.add("active");
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 600);
+      } else {
+        window.location.href = link.href;
+      }
+    });
+  });
+});
