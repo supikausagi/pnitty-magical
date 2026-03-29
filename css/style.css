@@ -57,7 +57,7 @@ main {
 h1 {
 	font-family: Corporate-Logo-Round;
 	color: #fe90cd;
-	font-size: 50px;
+	font-size: clamp(24px, 4vw, 40px);
 	text-align: center;
 	text-shadow: 0 4px 0 #fff, 4px 0 0 #fff, 0 -4px 0 #fff, -4px 0 0 #fff,4px 4px 0 #fff, -4px 4px 0 #fff, -4px -4px 0 #fff, 4px -4px 0 #fff;
 }
